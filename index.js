@@ -6,7 +6,7 @@ async function printPDF() {
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     await page.goto(pdfUrl, {waitUntil: 'networkidle0'});
-    const pdf = await page.pdf({path: `./pdf/test.pdf`, format: 'A4'});
+    const pdf = await page.pdf({path: `./pdf/test.pdf`, format: 'A4', printBackground: true});
 
     await browser.close();
     return pdf;
